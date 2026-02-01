@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace Banco
+namespace Banco.Models
 {
     public class Pessoa
     {
