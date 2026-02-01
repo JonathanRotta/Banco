@@ -16,32 +16,31 @@ namespace Banco
 
             Pessoa pessoa = new Pessoa(nomePessoa, idadePessoa);
 
-            Console.WriteLine("\nQual tipo de conta deseja abrir?");
-            Console.WriteLine("1 - Conta Corrente (com taxa de saque)");
-            Console.WriteLine("2 - Conta Poupança (sem taxas)");
-            Console.Write("Opção: ");
+            Console.WriteLine("\nQual tipo de conta deseja abrir? (1-Corrente / 2-Poupança)");
             int opcao = int.Parse(Console.ReadLine());
 
             if (opcao == 1)
             {
-                ContaCorrente contaPessoa = new ContaCorrente(pessoa);
+                Console.WriteLine("Depósito obrigatório para criação da conta corrente: ");
+            }
+
+            double depositoInicial = double.Parse(Console.ReadLine()); 
+
+            try
+            {
+                ContaBancaria conta = ContaFactory.CriarConta(opcao, pessoa);
+
+                Console.WriteLine($"\nSucesso! Conta {conta.NumeroConta} criada.");
+
+                conta.Deposito(100);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na criação: {ex.Message}");
             }
 
 
-            Console.WriteLine("Faça seu primeiro depósito: ");
 
-            int valorDepositado = int.Parse(Console.ReadLine());
-
-           
-
-            Console.WriteLine("O saldo da sua conta agora é: " + conta.Saldo);
-
-       
-
-           
-
-
-            
 
         }
     }

@@ -7,14 +7,14 @@ namespace Banco.Models
     internal class ContaPoupanca : ContaBancaria
     {
 
-        public ContaPoupanca(int numeroConta, Pessoa titular) : base(numeroConta, titular)
+        public ContaPoupanca(Pessoa titular) : base( titular)
         {
         }
 
 
         public override void Deposito(double valor)
         {
-
+            base.Deposito(valor);
         }
     }
 }
